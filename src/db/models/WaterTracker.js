@@ -2,23 +2,18 @@ import { model, Schema } from 'mongoose';
 
 const WaterTrackerSchema = new Schema(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'users',
-    },
-    amount: {
+    value: {
       type: Number,
       required: true,
+      default: 0,
     },
-    date: {
+    dateTime: {
       type: String,
-      required: true,
     },
+    userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
   },
-  {
-    timestamps: true,
-    versionKey: false,
-  },
+
+  { timestamps: true, versionKey: false },
 );
 
 const WaterTrackerCollection = model('waterTracker', WaterTrackerSchema);
