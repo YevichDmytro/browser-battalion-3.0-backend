@@ -1,10 +1,10 @@
 import { ONE_DAY } from '../constants/index.js';
 
 import {
-  registerUser,
   loginUser,
   logoutUser,
   refreshUserSession,
+  registerUser,
 } from '../services/auth.js';
 
 export const registerUserController = async (req, res) => {
@@ -14,6 +14,7 @@ export const registerUserController = async (req, res) => {
     status: 201,
     message: 'Successfully registered a user!',
     data: user,
+    redirectUrl: '/welcome',
   });
 };
 
@@ -79,4 +80,3 @@ export const refreshUserSessionController = async (req, res) => {
     },
   });
 };
-
